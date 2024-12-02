@@ -13,8 +13,7 @@
             "dynamodb:Batch*",
             "dynamodb:DeleteItem",
             "ssm:PutParameter",
-            "ssm:GetParameter",
-            "kms:Decrypt"
+            "ssm:GetParameter"
           ],
           "Effect": "Allow",
           "Resource": "*"
@@ -32,7 +31,9 @@
     "resources": {
       "/hello": {
         "GET": {
+          "authorization_type":"NONE",
           "lambda_function": "hello_world",
+          "proxy": true,
           "request": {},
           "response": {
             "statusCode": 200,
