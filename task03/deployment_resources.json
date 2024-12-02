@@ -31,7 +31,7 @@
     "resources": {
       "/hello": {
         "GET": {
-          "authorization_type":"NONE",
+      
           "lambda_function": "hello_world",
           "integration": "lambda_proxy",
           "request": {},
