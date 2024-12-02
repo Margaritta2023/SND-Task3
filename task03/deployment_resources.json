@@ -33,7 +33,7 @@
         "GET": {
           "authorization_type":"NONE",
           "lambda_function": "hello_world",
-          "proxy": true,
+          "integration": "lambda_proxy",
           "request": {},
           "response": {
             "statusCode": 200,
