@@ -13,7 +13,10 @@
   "env_variables": {},
   "publish_version": true,
   "alias": "learn",
-  "url_config": {},
+  "url_config": {
+      "enabled": true,
+      "auth_type": "NONE"
+  },
   "ephemeral_storage": 512,
   "tags": {}
 }
