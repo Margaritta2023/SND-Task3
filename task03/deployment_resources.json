@@ -33,14 +33,15 @@
         "GET": {
           "lambda_function": "hello_world",
           "integration": "AWS_PROXY",
-          "authorization_type": "AWS_IAM", 
+          "authorization_type": "None", 
           "integration_type": "mock", 
           "api_key_required": false, 
           "method_request_parameters": {}, 
           "integration_request_body_template": {}, 
           "response": {
-            "statusCode": 200,
+            
             "body": {
+              "statusCode": 200,
               "message": "Hello from Lambda"
             }
           }, 
