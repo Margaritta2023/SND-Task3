@@ -33,12 +33,12 @@
         "GET": {
       
           "lambda_function": "hello_world",
-          "integration": "lambda_proxy",
+          "integration": "AWS_PROXY",
           "request": {},
           "response": {
             "statusCode": 200,
             "body": {
-              "statusCode": 200,
+              
               "message": "Hello from Lambda"
             }
           }
