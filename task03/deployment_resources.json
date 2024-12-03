@@ -3,19 +3,8 @@
     "policy_content": {
       "Statement": [
         {
-          "Action": [
-            "logs:CreateLogGroup",
-            "logs:CreateLogStream",
-            "logs:PutLogEvents",
-            "dynamodb:GetItem",
-            "dynamodb:Query",
-            "dynamodb:PutItem",
-            "dynamodb:Batch*",
-            "dynamodb:DeleteItem",
-            "ssm:PutParameter",
-            "ssm:GetParameter"
-          ],
           "Effect": "Allow",
+          "Action": "lambda:InvokeFunction",
           "Resource": "*"
         }
       ],
@@ -29,25 +18,34 @@
     "deploy_stage": "api",
     "dependencies": [],
     "resources": {
-      "/hello": {
-        "enable_cors": false, 
+      "/": {
+        "enable_cors": false,
         "GET": {
-          "lambda_function": "hello_world",
-          "integration": "AWS_PROXY",
-          "authorization_type": "NONE", 
-          
-          "api_key_required": false, 
-          "method_request_parameters": {}, 
-          "integration_request_body_template": {}, 
-          "response": {
-            
-            "body": {
-              "statusCode": 200,
-              "message": "Hello from Lambda"
-            }
-          }, 
-          "integration_responses": [], 
-          "default_error_pattern": true 
+          "authorization_type": "NONE",
+          "integration_type": "lambda",
+          "api_key_required": false,
+          "enable_proxy": true,
+          "lambda_name": "hello_world",
+          "method_request_parameters": {},
+          "integration_request_body_template": {},
+          "responses": [],
+          "integration_responses": [],
+          "default_error_pattern": true
+        }
+      },
+      "/hello": {
+        "enable_cors": false,
+        "GET": {
+          "authorization_type": "NONE",
+          "integration_type": "lambda",
+          "api_key_required": false,
+          "enable_proxy": true,
+          "lambda_name": "hello_world",
+          "method_request_parameters": {},
+          "integration_request_body_template": {},
+          "responses": [],
+          "integration_responses": [],
+          "default_error_pattern": true
         }
       }
     },
@@ -55,3 +53,4 @@
     "tags": {}
   }
 }
+ 
