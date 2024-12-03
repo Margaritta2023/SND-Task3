@@ -34,8 +34,8 @@
         "GET": {
           "lambda_function": "hello_world",
           "integration": "AWS_PROXY",
-          "authorization_type": "AWS_IAM", 
-          "integration_type": "mock", 
+          "authorization_type": "NONE", 
+          
           "api_key_required": false, 
           "method_request_parameters": {}, 
           "integration_request_body_template": {}, 
